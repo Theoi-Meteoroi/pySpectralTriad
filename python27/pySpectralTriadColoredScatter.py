@@ -1,19 +1,23 @@
 """
-Author: 	HWReverse
+Orig Author: 	HWReverse
 Twitter: 	@r0_hw aka HWR0
 GitHub:		https://github.com/hwreverse/
 
+Edited for MacOS
 """
 
-import serial  
-import numpy   as np
-import matplotlib.pyplot as plt  
+import serial
+import scipy
+import numpy as np
+import matplotlib
+matplotlib.use('TkAgg')
+import matplotlib.pyplot as plt
 import matplotlib.colors
-from drawnow import *  
+from drawnow import *
 from serial import Serial
 from scipy.interpolate import interp1d, InterpolatedUnivariateSpline
- 
-spectreData = serial.Serial("COM7", 115200) # replace by your real comport, on Linux it is something like "/dev/ttyACMx"
+
+spectreData = serial.Serial("/dev/cu.usbmodem14201", 115200) # replace by your real comport, on Linux it is something like "/dev/ttyACMx"
 spectreData.reset_input_buffer()
 resolution = 1000
 
